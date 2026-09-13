@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard</title>
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.3.1/css/all.css"
+    integrity="sha512-x9WwyMYBnlXMNQ6kQ/Lyzu1NqIhLQKL5Oq6xByfXuRj7s9CskyCbLv/1IjqzJmXwFXWr0ov6jBV7Qbc0hh9nHg=="
+    crossorigin="anonymous" referrerpolicy="no-referrer">
+  <link rel="stylesheet" href="./bootstrap.css">
+  <link rel="stylesheet" href="./style.css">
+</head>
+<body>
+       <!-- navbaar -->
+    <header id="header">
+        <nav class="navbar navbar-expand-lg  d-flex">
+            <div class="container" id="nav-div">
+                <a class="navbar-brand" href="#" style="font-weight: bolder;">Navbar</a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+                    aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse justify-content-end text-center gap-2" id="navbarNav">
+                    <button type="button" data-mdb-button-init data-mdb-ripple-init class="btn "
+                        >MyPost</button>
+                    <button type="button" data-mdb-button-init data-mdb-ripple-init class="btn "
+                         id="logout-btn">logOut</button>
+                </div>
+            </div>
+        </nav>
+    </header>
+    <!-- navbaar -->
+
+
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+     <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+  <script src="./bootstrap.js"></script>
+  <script src="./app.js"></script>
+</body>
+</html>

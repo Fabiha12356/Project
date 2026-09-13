@@ -11,6 +11,8 @@ let logInBTn = document.querySelector("#logInBTn");
 let Signup_form = document.querySelector("#Signup-form")
 let login_form = document.querySelector("#login-form")
 let inputs = document.querySelectorAll("input");
+let logout_btn = document.querySelector("#logout-btn");
+
 console.log(inputs);
 console.log(Signup_form)
 
@@ -48,6 +50,9 @@ Signup_form && Signup_form.addEventListener("submit", async (e) => {
     inputs.forEach((input) =>{
         input.value = "";
     })
+    if(data){
+        window.location.href = "./dashboard.html"
+    }
 })
 
 login_form && login_form.addEventListener("submit", async (e) => {
@@ -68,4 +73,9 @@ login_form && login_form.addEventListener("submit", async (e) => {
         input.value = "";
     })
 
+})
+
+console.log(logout_btn)
+logout_btn.addEventListener("click" , () =>{
+    window.location.href = "./index.html"
 })
