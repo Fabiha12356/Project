@@ -2,6 +2,7 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    color: red !important;
 }
 
 body {
@@ -9,6 +10,7 @@ body {
     background: #f5f8ff;
     color: #172554;
 }
+
 
 
 /* ================= NAVBAR ================= */
