@@ -13,8 +13,8 @@ let login_form = document.querySelector("#login-form")
 let inputs = document.querySelectorAll("input");
 let logout_btn = document.querySelector("#logout-btn");
 
-console.log(inputs);
-console.log(Signup_form)
+// console.log(inputs);
+// console.log(Signup_form)
 
 SignUpBTn && SignUpBTn.addEventListener("click", () => {
     window.location.href = "./signup.html"
@@ -51,7 +51,23 @@ Signup_form && Signup_form.addEventListener("submit", async (e) => {
         input.value = "";
     })
     if(data){
-        window.location.href = "./dashboard.html"
+        //sweetalert
+        Swal.fire({
+  title: "SignUp!",
+  icon: "success",
+  draggable: true
+});
+//nextpage:-
+setTimeout(() =>{
+ window.location.href = "./dashboard.html"
+},3000)
+
+    }else{
+         Swal.fire({
+  icon: "error",
+  title: "Oops...",
+  text: "Try Again",
+         });
     }
 })
 
@@ -68,14 +84,37 @@ login_form && login_form.addEventListener("submit", async (e) => {
         "password": userInfo.password,
     })
     console.log(data);
-    
+    if(data){
+             //sweetalert
+        Swal.fire({
+  title: "LogIn!",
+  icon: "success",
+  draggable: true
+});
+//nextpage:-
+setTimeout(() =>{
+ window.location.href = "./dashboard.html"
+},3000)
+    }else{
+        Swal.fire({
+  icon: "error",
+  title: "Oops...",
+  text: "Try Again",
+});
+    }
     inputs.forEach((input) =>{
         input.value = "";
     })
 
 })
 
-console.log(logout_btn)
-logout_btn.addEventListener("click" , () =>{
-    window.location.href = "./index.html"
+
+logout_btn.addEventListener("click" , async() =>{
+    const { error } = await client.auth.signOut()
+    if(error){
+        console.log(error.message)
+    }else{
+  window.location.href = "./index.html"
+    }
+  
 })
