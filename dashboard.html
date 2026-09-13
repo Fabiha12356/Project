@@ -8,11 +8,11 @@
     integrity="sha512-x9WwyMYBnlXMNQ6kQ/Lyzu1NqIhLQKL5Oq6xByfXuRj7s9CskyCbLv/1IjqzJmXwFXWr0ov6jBV7Qbc0hh9nHg=="
     crossorigin="anonymous" referrerpolicy="no-referrer">
   <link rel="stylesheet" href="./bootstrap.css">
-  <link rel="stylesheet" href="./style.css">
+  <link rel="stylesheet" href="./dashstyle.css">
 </head>
 <body>
        <!-- navbaar -->
-    <header id="header">
+    <!-- <header id="header">
         <nav class="navbar navbar-expand-lg  d-flex">
             <div class="container" id="nav-div">
                 <a class="navbar-brand" href="#" style="font-weight: bolder;">Navbar</a>
@@ -28,8 +28,266 @@
                 </div>
             </div>
         </nav>
-    </header>
+    </header> -->
     <!-- navbaar -->
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>My Profile</title>
+
+    <link rel="stylesheet" href="style.css">
+
+    <!-- Google Font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+</head>
+
+<body>
+
+    <!-- ================= NAVBAR ================= -->
+
+    <nav class="navbar">
+
+        <div class="logo">
+            <span>●</span> Connectly
+        </div>
+
+        <div class="nav-links">
+            <a href="#">Home</a>
+            <a href="#">Explore</a>
+            <a href="#">About</a>
+        </div>
+
+        <div class="nav-right">
+
+            <a href="#" class="profile-nav">
+                <i class="fa-regular fa-user"></i>
+                Profile
+            </a>
+
+            <button class="logout-btn" id="logout-btn">
+                <i class="fa-solid fa-right-from-bracket"></i>
+                Sign Out
+            </button>
+
+        </div>
+
+    </nav>
+
+
+    <!-- ================= MAIN ================= -->
+
+    <main class="container">
+
+        <!-- LEFT PROFILE -->
+
+        <section class="profile-card">
+
+            <div class="avatar">
+                <i class="fa-solid fa-user"></i>
+            </div>
+
+            <h2>USERNAME</h2>
+
+            <p class="role">Community Member</p>
+
+            <div class="line"></div>
+
+            <!-- USER INFORMATION -->
+
+            <div class="user-info">
+
+                <div class="info-item">
+                    <i class="fa-regular fa-user"></i>
+
+                    <div>
+                        <span>Username</span>
+                        <strong id="username">@username</strong>
+                    </div>
+                </div>
+
+
+                <div class="info-item">
+                    <i class="fa-regular fa-envelope"></i>
+
+                    <div>
+                        <span>Email</span>
+                        <strong id="email">user@email.com</strong>
+                    </div>
+                </div>
+
+            </div>
+
+            <button class="edit-btn">
+                <i class="fa-regular fa-pen-to-square"></i>
+                Edit Profile
+            </button>
+
+        </section>
+
+
+        <!-- RIGHT CONTENT -->
+
+        <section class="content">
+
+            <!-- WELCOME -->
+
+            <div class="welcome">
+
+                <div>
+                    <p>Welcome back 👋</p>
+                    <h1>Share your thoughts.</h1>
+                    <span>
+                        Connect with the community and share something interesting.
+                    </span>
+                </div>
+
+                <div class="welcome-icon">
+                    <i class="fa-regular fa-paper-plane"></i>
+                </div>
+
+            </div>
+
+
+            <!-- CREATE POST -->
+
+            <div class="post-card">
+
+                <div class="post-header">
+
+                    <div class="small-avatar">
+                        <i class="fa-solid fa-user"></i>
+                    </div>
+
+                    <div>
+                        <h3>Create a Post</h3>
+                        <p>Share something with the community</p>
+                    </div>
+
+                </div>
+
+
+                <textarea
+                    placeholder="What's on your mind?">
+                </textarea>
+
+
+                <div class="post-bottom">
+
+                    <div class="post-options">
+
+                        <button>
+                            <i class="fa-regular fa-image"></i>
+                            Image
+                        </button>
+
+                        <button>
+                            <i class="fa-regular fa-face-smile"></i>
+                            Feeling
+                        </button>
+
+                    </div>
+
+                    <!-- You will add your JS logic here -->
+                    <button class="post-btn">
+                        <i class="fa-solid fa-paper-plane"></i>
+                        Post
+                    </button>
+
+                </div>
+
+            </div>
+
+
+            <!-- RECENT POSTS -->
+
+            <div class="recent-heading">
+                <h2>Recent Posts</h2>
+
+                <button>
+                    Latest
+                    <i class="fa-solid fa-chevron-down"></i>
+                </button>
+            </div>
+
+
+            <!-- POST -->
+
+            <article class="single-post">
+
+                <div class="post-user">
+
+                    <div class="small-avatar">
+                        <i class="fa-solid fa-user"></i>
+                    </div>
+
+                    <div>
+                        <h3>USERNAME</h3>
+                        <span>@username · 2 min ago</span>
+                    </div>
+
+                    <button class="more">
+                        <i class="fa-solid fa-ellipsis"></i>
+                    </button>
+
+                </div>
+
+
+                <div class="post-content">
+
+                    <h3>My first post! 🚀</h3>
+
+                    <p>
+                        Excited to be part of this amazing community.
+                        Looking forward to learning, sharing and growing together!
+                    </p>
+
+                </div>
+
+
+                <div class="post-actions">
+
+                    <button>
+                        <i class="fa-regular fa-heart"></i>
+                        Like
+                    </button>
+
+                    <button>
+                        <i class="fa-regular fa-comment"></i>
+                        Comment
+                    </button>
+
+                    <button>
+                        <i class="fa-solid fa-share-nodes"></i>
+                        Share
+                    </button>
+
+                </div>
+
+            </article>
+
+        </section>
+
+    </main>
+
+</body>
+</html>
+
+
+
+
+
+
 
 
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>

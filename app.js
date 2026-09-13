@@ -12,9 +12,14 @@ let Signup_form = document.querySelector("#Signup-form")
 let login_form = document.querySelector("#login-form")
 let inputs = document.querySelectorAll("input");
 let logout_btn = document.querySelector("#logout-btn");
+let username_dash = document.querySelector("#username");
+let email_dash= document.querySelector("#email");
+console.log(username_dash.innerHTML);
+console.log(email_dash.innerHTML);
 
 // console.log(inputs);
 // console.log(Signup_form)
+console.log()
 
 SignUpBTn && SignUpBTn.addEventListener("click", () => {
     window.location.href = "./signup.html"
@@ -31,7 +36,8 @@ Signup_form && Signup_form.addEventListener("submit", async (e) => {
     let userDta = new FormData(Signup_form);
     let userInfo = Object.fromEntries(userDta);
     console.log(userInfo);
-
+username_dash.innerHTML = `${userInfo.username}`
+email_dash.innerHTML = `${userInfo.email}`
     //Database insert:-
     const { error } = await client
         .from('Users-data')
@@ -60,8 +66,7 @@ Signup_form && Signup_form.addEventListener("submit", async (e) => {
 //nextpage:-
 setTimeout(() =>{
  window.location.href = "./dashboard.html"
-},3000)
-
+},2000)
     }else{
          Swal.fire({
   icon: "error",
@@ -109,7 +114,7 @@ setTimeout(() =>{
 })
 
 
-logout_btn.addEventListener("click" , async() =>{
+logout_btn && logout_btn.addEventListener("click" , async() =>{
     const { error } = await client.auth.signOut()
     if(error){
         console.log(error.message)
