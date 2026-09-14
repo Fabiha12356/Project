@@ -665,3 +665,11 @@ textarea::placeholder {
         font-size: 12px;
     }
 }
+
+
+#profile-file {
+    display: none;
+}
+.edit-btn i {
+    font-size: clamp(12px, 1.5vw, 14px);
+}

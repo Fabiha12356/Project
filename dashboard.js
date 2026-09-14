@@ -9,6 +9,8 @@ const client = createClient(supabaseUrl, supabaseKey);
 let username_dash = document.querySelector("#username");
 let email_dash= document.querySelector("#email");
 let para = document.querySelectorAll(".para");
+let profile = document.querySelector("#profile-file");
+console.log(profile);
 console.log(para)
 console.log(username_dash.innerHTML);
 console.log(email_dash.innerHTML);
@@ -31,3 +33,6 @@ para[1].innerHTML = authData.user.user_metadata.username;
 
 getuser();
 
+profile.addEventListener("change" , () =>{
+console.log("file slected")
+})
