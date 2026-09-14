@@ -37,18 +37,30 @@ Signup_form && Signup_form.addEventListener("submit", async (e) => {
     let userInfo = Object.fromEntries(userDta);
     console.log(userInfo);
 
-    //Database insert:-
+ //Database insert:-
     const { error } = await client
         .from('Users-data')
         .insert({
             "name": userInfo.username,
         }
         )
+        if(error){
+            console.log(error)
+        }else{
+            console.log("okkkk")
+        }
 
     //Auth
     const { data, error: usererror } = await client.auth.signUp({
         "email": userInfo.email,
         "password": userInfo.password,
+
+        //metadata:-
+        options: {
+    data: {
+        username: userInfo.username
+    }
+}     
     })
     console.log(data);
 
@@ -62,6 +74,8 @@ Signup_form && Signup_form.addEventListener("submit", async (e) => {
   icon: "success",
   draggable: true
 });
+
+
 
 //nextpage:-
 setTimeout(() =>{
