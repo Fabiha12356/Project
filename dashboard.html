@@ -93,7 +93,7 @@
 
         <section class="profile-card">
 
-            <div class="avatar">
+            <div class="avatar" id="preview">
                 <i class="fa-solid fa-user"></i>
             </div>
 
@@ -180,8 +180,7 @@
                 </div>
 
 
-                <textarea
-                    placeholder="What's on your mind?">
+                <textarea placeholder="What's on your mind?">
                 </textarea>
 
 
@@ -189,16 +188,17 @@
 
                     <div class="post-options">
 
-                        <button>
+                            <label for="image-file" class="edit-btn">
                             <i class="fa-regular fa-image"></i>
                             Image
-                        </button>
+                            </label>
+                     
+  <input type="file" id="image-file" accept="image/*">
 
-                        <button>
+                         <button id="feelingBTn">
                             <i class="fa-regular fa-face-smile"></i>
                             Feeling
-                        </button>
-
+                       </button>
                     </div>
 
                     <!-- You will add your JS logic here -->

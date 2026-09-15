@@ -10,6 +10,12 @@ let username_dash = document.querySelector("#username");
 let email_dash= document.querySelector("#email");
 let para = document.querySelectorAll(".para");
 let profile = document.querySelector("#profile-file");
+let profile_img = document.querySelector("#preview");
+let image_file = document.querySelector("#image-file");
+let feelingBTn = document.querySelector("#feelingBTn");
+
+
+console.log(profile_img.innerHTML)
 console.log(profile);
 console.log(para)
 console.log(username_dash.innerHTML);
@@ -35,4 +41,34 @@ getuser();
 
 profile.addEventListener("change" , () =>{
 console.log("file slected")
+  console.log(profile.files[0]);
+
+  const file = profile.files[0];
+     const imageURL = URL.createObjectURL(file);
+    console.log(imageURL);
+  
+profile_img.innerHTML = `<img src="${imageURL}" alt="pic">`
+
 })
+
+image_file.addEventListener("change" , async() =>{
+    console.log(image_file.files[0]);
+    //insert:-
+    const avatarFile = image_file.files[0]
+const { data, error } = await client
+  .storage
+  .from('images')
+  .upload(avatarFile.name, avatarFile, {
+    cacheControl: '0',
+    upsert: false
+    })
+  console.log(data);
+  console.log(error);
+
+})
+feelingBTn.addEventListener("click", () => {
+console.log("feelingbtn");
+
+});
+
+
