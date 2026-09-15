@@ -363,10 +363,24 @@ body {
 
 
 /* TEXTAREA */
-.post-content {
-    display: flex;
+.post-text{
+      display: flex;
     gap: 15px;
     width: 100%;
+}
+.post-content {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    width: 100%;
+}
+/* .recent-post{
+    border: 1px solid black;
+} */
+.recent-post img {
+      width: 100%;
+    object-fit: cover;
+    display: block;
 }
 
 .post-content textarea {

@@ -13,9 +13,19 @@ let profile = document.querySelector("#profile-file");
 let profile_img = document.querySelector("#preview");
 let image_file = document.querySelector("#image-file");
 let postImage = document.querySelector("#postImage");
-let small_avatar = document.querySelector(".small-avatar");
+let small_avatar = document.querySelectorAll(".small-avatar");
+let span_email = document.querySelector("#span-email");
+let h3_user = document.querySelector("#h3-user");
+console.log(span_email);
+console.log(h3_user);
+
+console.log(small_avatar);
 let post_btn = document.querySelector(".post-btn");
 let textArea = document.querySelector("textarea");
+
+let recent_post = document.querySelector(".recent-post");
+console.log(recent_post);
+
 
 
 
@@ -34,8 +44,13 @@ console.log(email_dash.innerHTML);
 
 //varibles:-
 let text;
+let imageURL;
+ let file;
+ let username ;
+ let email;
 console.log(text)
-
+console.log(imageURL);
+console.log(file)
 
 //fuction
 let getuser = async () => {
@@ -44,6 +59,8 @@ let getuser = async () => {
         await client.auth.getUser();
 console.log(authData);
   console.log(authData.user.user_metadata.username) 
+  username = authData.user.user_metadata.username;
+  email = authData.user.user_metadata.email;
 
 username_dash.innerHTML = authData.user.user_metadata.username;
 email_dash.innerHTML = authData.user.user_metadata.email;
@@ -59,12 +76,13 @@ profile.addEventListener("change" , () =>{
 console.log("file slected")
   console.log(profile.files[0]);
 
-  const file = profile.files[0];
-     const imageURL = URL.createObjectURL(file);
+   file = profile.files[0];
+      imageURL = URL.createObjectURL(file);
     console.log(imageURL);
+console.log(file)
   
 profile_img.innerHTML = `<img src="${imageURL}" alt="pic">`
-small_avatar.innerHTML = `<img src="${imageURL}" alt="pic">`
+small_avatar[0].innerHTML = `<img src="${imageURL}" alt="pic">`
 
 })
 
@@ -114,8 +132,29 @@ if(data){
   text: "Try Again",
          });
 }
-    // console.log(textArea.innerHTML)
- 
+
+ // Get:-
+  const { data:userUrl } = client
+  .storage
+  .from('images')
+  .getPublicUrl(data.path)
+  console.log(userUrl.publicUrl);
+let URL = userUrl.publicUrl
+
+
+
+recent_post.innerHTML=`<img src="${URL}?t=${Date.now()}" alt="pic">`
+small_avatar[1].innerHTML = `<img src="${imageURL}" alt="pic">`;
+h3_user.innerHTML = `${username}`;
+span_email.innerHTML = `${email}`
+
 
     
 })
+
+let paragraph = document.querySelector("#para");
+console.log(paragraph);
+console.log(paragraph.innerHTML)
+
+
+

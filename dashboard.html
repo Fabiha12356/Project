@@ -180,7 +180,7 @@
                 </div>
 
 
-                <div class="post-content">
+                <div class="post-text">
 
     <textarea placeholder="What's on your mind?"></textarea>
     <div class="post-image">
@@ -233,8 +233,8 @@
                     </div>
 
                     <div>
-                        <h3>USERNAME</h3>
-                        <span>@username · 2 min ago</span>
+                        <h3 id="h3-user">USERNAME</h3>
+                        <span id="span-email">@username · 2 min ago</span>
                     </div>
 
                     <button class="more">
@@ -246,12 +246,17 @@
 
                 <div class="post-content">
 
-                    <h3>My first post! 🚀</h3>
+                    <div>
+                        <h3>My first post! 🚀</h3>
 
-                    <p>
+                    <p id="para">
                         Excited to be part of this amazing community.
                         Looking forward to learning, sharing and growing together!
                     </p>
+                    </div>
+
+                    <div class="recent-post">
+                    </div>
 
                 </div>
 
@@ -259,20 +264,14 @@
                 <div class="post-actions">
 
                     <button>
-                        <i class="fa-regular fa-heart"></i>
-                        Like
+                        <i class="fa-solid fa-pen" style="color: #ffffff;"></i>
+                        edit
                     </button>
 
                     <button>
-                        <i class="fa-regular fa-comment"></i>
-                        Comment
+                       <i class="fa-solid fa-delete-left" style="color: #ffffff;"></i>
+                        delete
                     </button>
-
-                    <button>
-                        <i class="fa-solid fa-share-nodes"></i>
-                        Share
-                    </button>
-
                 </div>
 
             </article>
