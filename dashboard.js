@@ -12,17 +12,32 @@ let para = document.querySelectorAll(".para");
 let profile = document.querySelector("#profile-file");
 let profile_img = document.querySelector("#preview");
 let image_file = document.querySelector("#image-file");
-let feelingBTn = document.querySelector("#feelingBTn");
+let postImage = document.querySelector("#postImage");
+let small_avatar = document.querySelector(".small-avatar");
+let post_btn = document.querySelector(".post-btn");
+let textArea = document.querySelector("textarea");
 
 
+
+
+
+//check on console:-
+console.log(textArea)
+console.log(post_btn)
+console.log(small_avatar)
+console.log(postImage)
 console.log(profile_img.innerHTML)
 console.log(profile);
 console.log(para)
 console.log(username_dash.innerHTML);
 console.log(email_dash.innerHTML);
 
+//varibles:-
+let text;
+console.log(text)
 
 
+//fuction
 let getuser = async () => {
 
     const { data: authData, error: authError } =
@@ -36,9 +51,10 @@ para[0].innerHTML = authData.user.user_metadata.username;
 para[1].innerHTML = authData.user.user_metadata.username;
 
 };
-
 getuser();
 
+
+//event:-
 profile.addEventListener("change" , () =>{
 console.log("file slected")
   console.log(profile.files[0]);
@@ -48,12 +64,28 @@ console.log("file slected")
     console.log(imageURL);
   
 profile_img.innerHTML = `<img src="${imageURL}" alt="pic">`
+small_avatar.innerHTML = `<img src="${imageURL}" alt="pic">`
 
 })
 
 image_file.addEventListener("change" , async() =>{
     console.log(image_file.files[0]);
-    //insert:-
+
+  const file = image_file.files[0];
+     const imageURL = URL.createObjectURL(file);
+    console.log(imageURL);
+  
+postImage.src = `${imageURL}`
+
+})
+
+textArea.addEventListener("input", () => {
+    text = textArea.value;
+    console.log(text);
+});
+
+post_btn.addEventListener("click" , async() =>{
+   //insert:-
     const avatarFile = image_file.files[0]
 const { data, error } = await client
   .storage
@@ -65,10 +97,25 @@ const { data, error } = await client
   console.log(data);
   console.log(error);
 
-})
-feelingBTn.addEventListener("click", () => {
-console.log("feelingbtn");
-
+if(data){
+        postImage.src = "";
+        textArea.value = "";
+        //sweet alerts
+               Swal.fire({
+  title: "Posted!",
+  icon: "success",
+  draggable: true
 });
+}else{
+    console.log(error);
+     Swal.fire({
+  icon: "error",
+  title: "Try Again?",
+  text: "Try Again",
+         });
+}
+    // console.log(textArea.innerHTML)
+ 
 
-
+    
+})
