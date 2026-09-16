@@ -9,38 +9,7 @@
     crossorigin="anonymous" referrerpolicy="no-referrer">
   <link rel="stylesheet" href="./bootstrap.css">
   <link rel="stylesheet" href="./dashstyle.css">
-</head>
-<body>
-       <!-- navbaar -->
-    <!-- <header id="header">
-        <nav class="navbar navbar-expand-lg  d-flex">
-            <div class="container" id="nav-div">
-                <a class="navbar-brand" href="#" style="font-weight: bolder;">Navbar</a>
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
-                    aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-                <div class="collapse navbar-collapse justify-content-end text-center gap-2" id="navbarNav">
-                    <button type="button" data-mdb-button-init data-mdb-ripple-init class="btn "
-                        >MyPost</button>
-                    <button type="button" data-mdb-button-init data-mdb-ripple-init class="btn "
-                         id="logout-btn">logOut</button>
-                </div>
-            </div>
-        </nav>
-    </header> -->
-    <!-- navbaar -->
-
-
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-    <title>My Profile</title>
-
-    <link rel="stylesheet" href="style.css">
+  
 
     <!-- Google Font -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -51,9 +20,8 @@
     <link rel="stylesheet"
         href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
 </head>
-
 <body>
-
+  
     <!-- ================= NAVBAR ================= -->
 
     <nav class="navbar">
@@ -76,7 +44,8 @@
             </a>
 
             <button class="logout-btn" id="logout-btn">
-                <i class="fa-solid fa-right-from-bracket"></i>
+                <i class="fa-solid fa-right-from-bracket"
+                style="color: #ffffff;"></i>
                 Sign Out
             </button>
 
@@ -247,12 +216,19 @@
                 <div class="post-content">
 
                     <div>
-                        <h3>My first post! 🚀</h3>
+                        <h3>Description! 🚀</h3>
 
-                    <p id="para">
-                        Excited to be part of this amazing community.
-                        Looking forward to learning, sharing and growing together!
+                    <div class="inner-div">
+                        <div >
+                            <p id="para">
+                                helooooooo
                     </p>
+                        </div>
+                        <div>
+                            <button>
+                                <i class="fa-solid fa-pen" style="color: #ffffff;"></i>edit!</button>
+                        </div>
+                    </div>
                     </div>
 
                     <div class="recent-post">
@@ -263,10 +239,12 @@
 
                 <div class="post-actions">
 
-                    <button>
-                        <i class="fa-solid fa-pen" style="color: #ffffff;"></i>
-                        edit
-                    </button>
+                    <label class="edit-btn" for="profile-file" >
+                <i class="fa-regular fa-pen-to-square"></i>
+                Edit 
+            </label>
+
+                <input type="file" id="edit-profile" accept="image/*">
 
                     <button>
                        <i class="fa-solid fa-delete-left" style="color: #ffffff;"></i>

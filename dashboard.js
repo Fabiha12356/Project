@@ -26,7 +26,9 @@ let textArea = document.querySelector("textarea");
 let recent_post = document.querySelector(".recent-post");
 console.log(recent_post);
 
-
+let paragraph = document.querySelector("#para");
+console.log(paragraph);
+console.log(paragraph.innerHTML)
 
 
 
@@ -146,15 +148,19 @@ let URL = userUrl.publicUrl
 recent_post.innerHTML=`<img src="${URL}?t=${Date.now()}" alt="pic">`
 small_avatar[1].innerHTML = `<img src="${imageURL}" alt="pic">`;
 h3_user.innerHTML = `${username}`;
-span_email.innerHTML = `${email}`
+span_email.innerHTML = `${email}`;
+paragraph.innerHTML = `${text}`;
 
 
     
 })
 
-let paragraph = document.querySelector("#para");
-console.log(paragraph);
-console.log(paragraph.innerHTML)
 
 
 
+
+let editBtn = document.querySelector("#editBtn");
+console.log(editBtn)
+console.log(editBtn.innerHTML);
+
+// editBtn.addEventListener()

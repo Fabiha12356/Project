@@ -72,9 +72,9 @@ body {
 
 .logout-btn {
     border: 1px solid #dce6fa;
-    background: white;
+    color: white;
 
-    color: #5b8dfd;
+    background-color: #5b8dfd;
 
     padding: 10px 17px;
     border-radius: 9px;
@@ -374,9 +374,31 @@ body {
     gap: 15px;
     width: 100%;
 }
-/* .recent-post{
-    border: 1px solid black;
-} */
+.inner-div{
+    display: flex;
+    justify-content: space-between;
+}
+.inner-div button {
+   background:#5b8dfd;
+
+    border: none;
+
+    padding: 9px 13px;
+
+    border-radius: 8px;
+
+    color: white;
+
+    font-family: inherit;
+
+    cursor: pointer;
+    transition:  all 0.5s ease-in;
+}
+.inner-div button:hover{
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px rgba(91, 141, 253, 0.25);
+}
+
 .recent-post img {
       width: 100%;
     object-fit: cover;
@@ -594,20 +616,25 @@ textarea::placeholder {
     display: flex;
 
     gap: 28px;
+
 }
 
 .post-actions button {
+  background:#5b8dfd;
+
     border: none;
 
-    background: transparent;
+    padding: 9px 13px;
 
-    color: #77849a;
+    border-radius: 8px;
+
+    color: white;
 
     font-family: inherit;
 
     cursor: pointer;
+    transition:  all 0.5s ease-in;
 
-    transition: 0.3s;
 }
 
 .post-actions button:hover {
@@ -717,7 +744,9 @@ textarea::placeholder {
     }
 }
 
-
+#edit-profile{
+    display: none;
+}
 #profile-file {
     display: none;
 }
@@ -740,4 +769,6 @@ textarea::placeholder {
     object-fit: cover;
     border-radius: 50%;
     display: block;
+}.post-actions label{
+    width: 15% !important;
 }
