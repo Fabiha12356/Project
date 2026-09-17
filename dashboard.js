@@ -217,3 +217,8 @@ recent_post.innerHTML="";
 console.log(recent_post);
 
 })
+
+let text_edit = document.querySelector("#text-edit");
+text_edit.addEventListener("click",()=>{
+  console.log("console");
+})

@@ -638,7 +638,8 @@ textarea::placeholder {
 }
 
 .post-actions button:hover {
-    color: #5b8dfd;
+      transform: translateY(-2px);
+    box-shadow: 0 8px 20px rgba(91, 141, 253, 0.25);
 }
 
 
@@ -771,4 +772,16 @@ textarea::placeholder {
     display: block;
 }.post-actions label{
     width: 15% !important;
+    background-color: #5b8dfd;
+      padding: 9px 13px;
+    border-radius: 8px;
+    color: white;
+}
+
+.text{
+background-color: transparent !important;
+background: #ffffff !important;
+box-shadow: 0 5px 20px black;
+border-radius: 5px !important;
+padding: 5px 8px !important;
 }
