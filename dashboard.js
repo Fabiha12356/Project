@@ -29,8 +29,7 @@ console.log(recent_post);
 let paragraph = document.querySelector("#para");
 console.log(paragraph);
 console.log(paragraph.innerHTML)
-
-
+console.log(profile);
 
 
 //check on console:-
@@ -103,10 +102,11 @@ textArea.addEventListener("input", () => {
     text = textArea.value;
     console.log(text);
 });
-
+let avatarFile ;
+let path;
 post_btn.addEventListener("click" , async() =>{
    //insert:-
-    const avatarFile = image_file.files[0]
+    avatarFile = image_file.files[0]
 const { data, error } = await client
   .storage
   .from('images')
@@ -141,7 +141,9 @@ if(data){
   .from('images')
   .getPublicUrl(data.path)
   console.log(userUrl.publicUrl);
-let URL = userUrl.publicUrl
+let URL = userUrl.publicUrl;
+path = data.path
+
 
 
 
@@ -159,8 +161,59 @@ paragraph.innerHTML = `${text}`;
 
 
 
-let editBtn = document.querySelector("#editBtn");
-console.log(editBtn)
-console.log(editBtn.innerHTML);
+let edit_input = document.querySelector("#edit-profile");
+console.log(edit_input)
+console.log(edit_input.innerHTML);
 
-// editBtn.addEventListener()
+edit_input.addEventListener("change" , async() =>{
+    console.log("okkkk!");
+    console.log(edit_input.files[0]);
+
+    //Update:-
+  avatarFile = edit_input.files[0]
+  const { data:userdata, error:usererror } = await client
+  .storage
+  .from('images')
+  .update(path, avatarFile, {
+    cacheControl: '0'
+  });
+
+console.log(userdata);
+console.log(usererror);
+
+// Get:-
+  const { data } = client
+  .storage
+  .from('images')
+  .getPublicUrl(path)
+  console.log(data.publicUrl);
+let URL = data.publicUrl
+
+
+
+recent_post.innerHTML=`<img src="${URL}?t=${Date.now()}" alt="pic">`
+console.log(recent_post);
+
+
+
+})
+
+
+let del_btn = document.querySelector("#del-btn");
+console.log(del_btn)
+del_btn.addEventListener("click",async() =>{
+  console.log("click")
+  const { data, error } = await client
+  .storage
+  .from("images")
+  .remove([path])
+  if(data){
+    console.log("okkkkkkkkk")
+  }else{
+    console.log(error);
+  }
+
+recent_post.innerHTML="";
+console.log(recent_post);
+
+})
