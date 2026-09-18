@@ -14,12 +14,12 @@ let inputs = document.querySelectorAll("input");
 let logout_btn = document.querySelector("#logout-btn");
 
 
-// console.log(inputs);
-// console.log(Signup_form)
-console.log()
 // varibales
 let email ;
 let password ;
+
+
+//events:-
 
 SignUpBTn && SignUpBTn.addEventListener("click", () => {
     window.location.href = "./signup.html"

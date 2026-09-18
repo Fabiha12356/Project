@@ -681,6 +681,10 @@ textarea::placeholder {
 
 
 @media (max-width: 550px) {
+   .post-text{
+display: flex;
+flex-direction: column;
+    }
 
     .navbar {
         height: 68px;
@@ -784,4 +788,10 @@ background: #ffffff !important;
 box-shadow: 0 5px 20px black;
 border-radius: 5px !important;
 padding: 5px 8px !important;
+}
+article{
+    display: none;
+}
+.show{
+    display: block;
 }

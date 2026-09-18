@@ -16,20 +16,16 @@ let postImage = document.querySelector("#postImage");
 let small_avatar = document.querySelectorAll(".small-avatar");
 let span_email = document.querySelector("#span-email");
 let h3_user = document.querySelector("#h3-user");
-console.log(span_email);
-console.log(h3_user);
-
-console.log(small_avatar);
+let text_edit = document.querySelector("#text-edit");
+let logout_btn = document.querySelector("#logout-btn");
+let del_btn = document.querySelector("#del-btn");
+let edit_input = document.querySelector("#edit-profile");
+let article = document.querySelector("article");
+let paragraph = document.querySelector("#para");
 let post_btn = document.querySelector(".post-btn");
 let textArea = document.querySelector("textarea");
-
 let recent_post = document.querySelector(".recent-post");
-console.log(recent_post);
 
-let paragraph = document.querySelector("#para");
-console.log(paragraph);
-console.log(paragraph.innerHTML)
-console.log(profile);
 
 
 //check on console:-
@@ -42,6 +38,19 @@ console.log(profile);
 console.log(para)
 console.log(username_dash.innerHTML);
 console.log(email_dash.innerHTML);
+console.log(article)
+console.log(edit_input)
+console.log(edit_input.innerHTML);
+console.log(del_btn)
+console.log(logout_btn);
+console.log(span_email);
+console.log(h3_user);
+console.log(small_avatar);
+console.log(textArea);
+console.log(recent_post);
+console.log(paragraph);
+console.log(paragraph.innerHTML)
+console.log(profile);
 
 //varibles:-
 let text;
@@ -49,6 +58,10 @@ let imageURL;
  let file;
  let username ;
  let email;
+let avatarFile ;
+let path;
+
+//var check:-
 console.log(text)
 console.log(imageURL);
 console.log(file)
@@ -70,7 +83,6 @@ para[1].innerHTML = authData.user.user_metadata.username;
 
 };
 getuser();
-
 
 //event:-
 profile.addEventListener("change" , () =>{
@@ -102,9 +114,9 @@ textArea.addEventListener("input", () => {
     text = textArea.value;
     console.log(text);
 });
-let avatarFile ;
-let path;
+
 post_btn.addEventListener("click" , async() =>{
+  article.classList.add("show");
    //insert:-
     avatarFile = image_file.files[0]
 const { data, error } = await client
@@ -118,8 +130,9 @@ const { data, error } = await client
   console.log(error);
 
 if(data){
-        postImage.src = "";
-        textArea.value = "";
+  textArea.value = "";
+   postImage.src = "";
+       
         //sweet alerts
                Swal.fire({
   title: "Posted!",
@@ -157,14 +170,6 @@ paragraph.innerHTML = `${text}`;
     
 })
 
-
-
-
-
-let edit_input = document.querySelector("#edit-profile");
-console.log(edit_input)
-console.log(edit_input.innerHTML);
-
 edit_input.addEventListener("change" , async() =>{
     console.log("okkkk!");
     console.log(edit_input.files[0]);
@@ -198,11 +203,8 @@ console.log(recent_post);
 
 })
 
-
-let del_btn = document.querySelector("#del-btn");
-console.log(del_btn)
 del_btn.addEventListener("click",async() =>{
-  console.log("click")
+  console.log("click");
   const { data, error } = await client
   .storage
   .from("images")
@@ -215,10 +217,23 @@ del_btn.addEventListener("click",async() =>{
 
 recent_post.innerHTML="";
 console.log(recent_post);
+paragraph.innerHTML = "";
 
 })
 
-let text_edit = document.querySelector("#text-edit");
 text_edit.addEventListener("click",()=>{
   console.log("console");
+  paragraph.classList.add("text")
+  
+})
+
+
+logout_btn.addEventListener("click",async()=>{
+  const { error } = await client.auth.signOut()
+if(error){
+    console.log("okk");
+}else{
+    console.log("signout!");
+    window.location.href = "./index.html"
+}
 })
