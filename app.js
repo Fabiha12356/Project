@@ -22,11 +22,11 @@ let password ;
 //events:-
 
 SignUpBTn && SignUpBTn.addEventListener("click", () => {
-    window.location.href = "./signup.html"
+    window.location.href = "signup.html"
 })
 
 logInBTn && logInBTn.addEventListener("click", () => {
-    window.location.href = "./logIn.html"
+    window.location.href = "logIn.html"
 });
 
 
