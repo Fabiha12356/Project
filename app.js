@@ -79,7 +79,7 @@ Signup_form && Signup_form.addEventListener("submit", async (e) => {
 
 //nextpage:-
 setTimeout(() =>{
- window.location.pathname = "/dashboard.html"
+ window.location.href = "/dashboard.html"
 },2000)
     }else{
          Swal.fire({
