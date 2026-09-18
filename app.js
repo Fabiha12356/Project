@@ -79,7 +79,7 @@ Signup_form && Signup_form.addEventListener("submit", async (e) => {
 
 //nextpage:-
 setTimeout(() =>{
- window.location.href = "/dashboard.html"
+ window.location.href = "dashboard.html"
 },2000)
     }else{
          Swal.fire({
@@ -113,7 +113,7 @@ login_form && login_form.addEventListener("submit", async (e) => {
 });
 //nextpage:-
 setTimeout(() =>{
- window.location.href = "./dashboard.html"
+ window.location.href = "dashboard.html"
 },3000)
     }else{
         Swal.fire({
