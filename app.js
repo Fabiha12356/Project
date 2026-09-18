@@ -26,7 +26,7 @@ SignUpBTn && SignUpBTn.addEventListener("click", () => {
 })
 
 logInBTn && logInBTn.addEventListener("click", () => {
-    window.location.href = "login.html"
+    window.location.href = "logIn.html"
 });
 
 
