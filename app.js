@@ -99,42 +99,45 @@ login_form && login_form.addEventListener("submit", async (e) => {
     console.log(userInfo);
 
     //logIn:-
-    const { data, error } = await client.auth.signInWithPassword({
-        "Email": userInfo.email,
-        "password": userInfo.password,
-    })
-    console.log(data);
-    if(data){
-             //sweetalert
-        Swal.fire({
-  title: "LogIn!",
-  icon: "success",
-  draggable: true
+const { data, error } = await client.auth.signInWithPassword({
+    email: userInfo.email,
+    password: userInfo.password
 });
-//nextpage:-
-setTimeout(() =>{
- window.location.href = "dashboard.html"
-},3000)
-    }else{
-        Swal.fire({
-  icon: "error",
-  title: "Oops...",
-  text: "Try Again",
-});
-    }
+
+console.log("LOGIN DATA:", data);
+console.log("LOGIN ERROR:", error);
+
+if (error) {
+    Swal.fire({
+        icon: "error",
+        title: "Login Failed",
+        text: error.message
+    });
+    return;
+}
+
+if (data.session) {
+    Swal.fire({
+        title: "LogIn!",
+        icon: "success"
+    });
+
+    setTimeout(() => {
+        window.location.href = "dashboard.html";
+    }, 2000);
+}
     inputs.forEach((input) =>{
         input.value = "";
     })
-
 })
 
 
-logout_btn && logout_btn.addEventListener("click" , async() =>{
-    const { error } = await client.auth.signOut()
-    if(error){
-        console.log(error.message)
-    }else{
-  window.location.href = "./index.html"
-    }
+// logout_btn && logout_btn.addEventListener("click" , async() =>{
+//     const { error } = await client.auth.signOut()
+//     if(error){
+//         console.log(error.message)
+//     }else{
+//   window.location.href = "./index.html"
+//     }
   
-})
+// })

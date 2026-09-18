@@ -71,17 +71,26 @@ let getuser = async () => {
 
     const { data: authData, error: authError } =
         await client.auth.getUser();
-console.log(authData);
-  console.log(authData.user.user_metadata.username) 
-  username = authData.user.user_metadata.username;
-  email = authData.user.user_metadata.email;
 
-username_dash.innerHTML = authData.user.user_metadata.username;
-email_dash.innerHTML = authData.user.user_metadata.email;
-para[0].innerHTML = authData.user.user_metadata.username;
-para[1].innerHTML = authData.user.user_metadata.username;
 
+    if (authError || !authData.user) {
+        console.log("User login nahi hai");
+        return;
+    }
+
+    const user = authData.user;
+
+    console.log("USER:", user);
+    console.log("USERNAME:", user.user_metadata.username);
+    console.log("EMAIL:", user.email);
+
+    username_dash.innerHTML = user.user_metadata.username || "";
+    email_dash.innerHTML = user.email || "";
+
+    para[0].innerHTML = user.user_metadata.username || "";
+    para[1].innerHTML = user.user_metadata.username || "";
 };
+
 getuser();
 
 //event:-
